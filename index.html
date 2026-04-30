@@ -1138,6 +1138,350 @@
       transform: translateY(0);
     }
 
+    /* ========================= */
+    /* Responsive improvements */
+    /* ========================= */
+
+    /* Prevent horizontal scrolling */
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* Better default image behaviour */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Mobile menu button */
+    .mobile-menu-btn {
+      display: none;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: var(--text-main);
+      border-radius: 0.75rem;
+      width: 42px;
+      height: 42px;
+      font-size: 1.35rem;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Better hero image sizing */
+    .hero-photo-wrapper {
+      max-width: 360px;
+      width: 100%;
+      margin: 0 auto;
+      min-height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle at top, rgba(56,189,248,0.15), transparent 60%),
+                  rgba(15,23,42,0.85);
+      border: 1px solid rgba(148,163,184,0.25);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-photo {
+      width: 300px;
+      height: 300px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Make card content wrap better */
+    .card-header-row,
+    .project-modal-header {
+      min-width: 0;
+    }
+
+    .card-title,
+    .card-subtitle,
+    .card-meta,
+    .project-modal-header h3,
+    .project-modal-header p {
+      word-wrap: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    /* Responsive navbar */
+    @media (max-width: 899px) {
+      .mobile-menu-btn {
+        display: inline-flex;
+      }
+
+      .nav {
+        position: relative;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: calc(100% + 0.75rem);
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.35rem;
+        padding: 1rem;
+        border-radius: 1rem;
+        background: rgba(2, 6, 23, 0.98);
+        border: 1px solid rgba(148, 163, 184, 0.22);
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(18px);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-link {
+        padding: 0.75rem 0.8rem;
+        border-radius: 0.75rem;
+      }
+
+      .nav-link:hover {
+        background: rgba(15, 23, 42, 0.95);
+      }
+
+      .nav-link::after {
+        display: none;
+      }
+
+      .nav-cta {
+        display: inline-flex;
+        justify-content: center;
+        margin-top: 0.4rem;
+      }
+    }
+
+    /* Tablet and mobile layout */
+    @media (max-width: 899px) {
+      section {
+        padding: 3.5rem 0;
+      }
+
+      .hero {
+        padding-top: 2.5rem;
+        padding-bottom: 3.5rem;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .skills-layout,
+      .project-modal-content,
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        text-align: left;
+      }
+
+      .hero-title {
+        font-size: clamp(2.1rem, 8vw, 2.8rem);
+      }
+
+      .hero-subtitle {
+        font-size: 0.95rem;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+      }
+
+      .hero-actions .btn {
+        justify-content: center;
+      }
+
+      .card-grid-3,
+      .card-grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .project-modal-body {
+        max-height: calc(100vh - 2rem);
+        overflow-y: auto;
+      }
+    }
+
+    /* Phone layout */
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      section {
+        padding: 3rem 0;
+      }
+
+      .nav-name {
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+      }
+
+      .nav-logo {
+        width: 30px;
+        height: 30px;
+      }
+
+      .hero-title {
+        font-size: 2.05rem;
+      }
+
+      .hero-subtitle,
+      .about-text p,
+      .section-desc,
+      .contact-text p {
+        font-size: 0.9rem;
+      }
+
+      .hero-meta {
+        flex-direction: column;
+        gap: 0.45rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.75rem 1rem;
+      }
+
+      .hero-photo-wrapper {
+        max-width: 280px;
+        min-height: 280px;
+        padding: 1rem;
+      }
+
+      .hero-photo {
+        width: 230px;
+        height: 230px;
+      }
+
+      .section-title {
+        font-size: 1.35rem;
+      }
+
+      .stats-grid,
+      .card-grid-3,
+      .card-grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 1.1rem 1rem;
+      }
+
+      .card-header-row {
+        flex-direction: column;
+      }
+
+      .card-tag {
+        align-self: flex-start;
+      }
+
+      .project-logo,
+      .project-media img {
+        height: 130px;
+      }
+
+      .timeline {
+        padding-left: 1.2rem;
+      }
+
+      .timeline-dot {
+        left: -1.35rem;
+      }
+
+      .skills-tags {
+        gap: 0.35rem;
+      }
+
+      .skill-tag {
+        font-size: 0.75rem;
+      }
+
+      .project-modal-body {
+        margin: 1rem;
+        padding: 1.1rem 1rem 1.25rem;
+        border-radius: 1rem;
+      }
+
+      .project-modal-header {
+        flex-direction: column;
+        padding-right: 1.5rem;
+      }
+
+      .project-modal-tag {
+        white-space: normal;
+      }
+
+      .carousel-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 15px;
+      }
+
+      .carousel-btn.prev {
+        left: 8px;
+      }
+
+      .carousel-btn.next {
+        right: 8px;
+      }
+
+      .contact-list a {
+        word-break: break-word;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .back-to-top {
+        right: 1rem;
+        bottom: 1rem;
+        width: auto;
+        padding: 0.65rem 0.9rem;
+      }
+    }
+
+    /* Very small phones */
+    @media (max-width: 380px) {
+      .hero-title {
+        font-size: 1.85rem;
+      }
+
+      .eyebrow {
+        font-size: 0.68rem;
+      }
+
+      .hero-photo-wrapper {
+        max-width: 240px;
+        min-height: 240px;
+      }
+
+      .hero-photo {
+        width: 200px;
+        height: 200px;
+      }
+
+      .card-meta span {
+        display: block;
+      }
+
+      .card-meta span + span::before {
+        content: "";
+        margin: 0;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1154,7 +1498,12 @@
                 />  
             <div class="nav-name">Balpreet Singh</div>
           </div>
-          <div class="nav-links">
+
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu">
+            ☰
+          </button>
+          
+          <div class="nav-links" id="navLinks">
             <a href="#about" class="nav-link">About</a>
             <a href="#projects" class="nav-link">Projects</a>
             <a href="#experience" class="nav-link">Experience</a>
@@ -1206,13 +1555,13 @@
             </div>
 
             <aside class="hero-photo-wrapper">
-                <img
-                    src="images/profile.jpg"
-                    alt="Portrait of Balpreet Singh"
-                    class="hero-photo"
-                  />                  
-                </div>
-              </aside>
+              <div class="hero-photo-orbit"></div>
+              <img
+                src="images/profile.jpg"
+                alt="Portrait of Balpreet Singh"
+                class="hero-photo"
+              />
+            </aside>
               
 
             <!-- Hero card 
@@ -1734,7 +2083,7 @@
                 </li>
                 <li>
                   <a href="https://github.com/Balpreet-S" target="_blank" rel="noreferrer">
-                    <span class="icon">{"</>"}</span>
+                    <span class="icon">&lt;/&gt;</span>
                     <span>GitHub</span>
                   </a>
                 </li>
@@ -1900,6 +2249,34 @@
   
     document.querySelectorAll("[data-carousel]").forEach(setupCarousel);
   })();
+
+  </script>
+
+  <script>
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    if (mobileMenuBtn && navLinks) {
+      mobileMenuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+
+        if (navLinks.classList.contains("open")) {
+          mobileMenuBtn.textContent = "×";
+          mobileMenuBtn.setAttribute("aria-label", "Close navigation menu");
+        } else {
+          mobileMenuBtn.textContent = "☰";
+          mobileMenuBtn.setAttribute("aria-label", "Open navigation menu");
+        }
+      });
+
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          mobileMenuBtn.textContent = "☰";
+          mobileMenuBtn.setAttribute("aria-label", "Open navigation menu");
+        });
+      });
+    }
   </script>
   
   
